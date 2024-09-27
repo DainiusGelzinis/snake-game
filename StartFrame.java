@@ -33,7 +33,7 @@ class OvalButton extends JButton {
 // Class for the start frame, allows user to select snake color and start the game
 public class StartFrame extends JFrame {
 
-    private JComboBox<String> colorComboBox;  // Dropdown for selecting snake color
+    private final JComboBox<String> colorComboBox;  // Dropdown for selecting snake color
 
     // Constructor for StartFrame, initializes the UI
     public StartFrame() {
@@ -66,15 +66,21 @@ public class StartFrame extends JFrame {
                 String selectedColor = (String) colorComboBox.getSelectedItem();  // Get selected color
                 Color snakeColor1 = Color.GREEN;  // Default snake colors
                 Color snakeColor2 = new Color(40, 170, 0);
-                if (selectedColor.equals("Blue")) {
-                    snakeColor1 = new Color(80, 100, 240);  // Blue snake colors
-                    snakeColor2 = Color.BLUE;
-                } else if (selectedColor.equals("Green")) {
-                    snakeColor1 = Color.GREEN;  // Green snake colors
-                    snakeColor2 = new Color(40, 170, 0);
-                } else if (selectedColor.equals("Red")) {
-                    snakeColor1 = new Color(255, 130, 130);  // Red snake colors
-                    snakeColor2 = Color.RED;
+                assert selectedColor != null;
+                switch (selectedColor) {
+                    case "Blue" -> {
+                        snakeColor1 = new Color(80, 100, 240);  // Blue snake colors
+
+                        snakeColor2 = Color.BLUE;
+                    }
+                    case "Green" ->
+                        // Green snake colors
+                            snakeColor2 = new Color(40, 170, 0);
+                    case "Red" -> {
+                        snakeColor1 = new Color(255, 130, 130);  // Red snake colors
+
+                        snakeColor2 = Color.RED;
+                    }
                 }
                 new GameFrame(snakeColor1, snakeColor2);  // Start the game with selected colors
             }

@@ -15,8 +15,8 @@ public class GamePanel extends JPanel implements ActionListener {
     static final int NUMBER_OF_CELLS = (WINDOW_HEIGHT * WINDOW_WIDTH) / CELL_SIZE;
 
     // Arrays to store snake body coordinates
-    final int x[] = new int[NUMBER_OF_CELLS];
-    final int y[] = new int[NUMBER_OF_CELLS];
+    final int[] x = new int[NUMBER_OF_CELLS];
+    final int[] y = new int[NUMBER_OF_CELLS];
 
     // Snake attributes
     int snakeLength = 5;  // Initial snake length
@@ -26,7 +26,7 @@ public class GamePanel extends JPanel implements ActionListener {
     String direction = "right";  // Snake's direction of movement
     boolean moving = false;  // Boolean flag for movement state
     Timer timer;  // Timer for controlling the game loop speed
-    static final int DELAY = 140;  // Delay between game loop iterations
+    static final int DELAY = 120;  // Delay between game loop iterations
     Random random;  // Random object for apple and special berry placement
 
     // Snake colors
@@ -109,8 +109,8 @@ public class GamePanel extends JPanel implements ActionListener {
     public void spawnApple() {
         boolean check = true;
         while (check) {
-            appleX = random.nextInt((int) (WINDOW_WIDTH / CELL_SIZE)) * CELL_SIZE;
-            appleY = random.nextInt((int) (WINDOW_HEIGHT / CELL_SIZE)) * CELL_SIZE;
+            appleX = random.nextInt(WINDOW_WIDTH / CELL_SIZE) * CELL_SIZE;
+            appleY = random.nextInt(WINDOW_HEIGHT / CELL_SIZE) * CELL_SIZE;
             check = false;
             for (int i = 0; i < snakeLength; i++) {
                 if (x[i] == appleX && y[i] == appleY) {
@@ -124,8 +124,8 @@ public class GamePanel extends JPanel implements ActionListener {
         if (random.nextInt(5) == 0 && !isSpecialBerry) {
             check = true;
             while (check) {
-                specialBerryX = random.nextInt((int) (WINDOW_WIDTH / CELL_SIZE)) * CELL_SIZE;
-                specialBerryY = random.nextInt((int) (WINDOW_HEIGHT / CELL_SIZE)) * CELL_SIZE;
+                specialBerryX = random.nextInt(WINDOW_WIDTH / CELL_SIZE) * CELL_SIZE;
+                specialBerryY = random.nextInt(WINDOW_HEIGHT / CELL_SIZE) * CELL_SIZE;
                 isSpecialBerry = true;
                 check = false;
                 for (int i = 0; i < snakeLength; i++) {
@@ -195,6 +195,7 @@ public class GamePanel extends JPanel implements ActionListener {
         for (int i = snakeLength; i > 0; i--) {
             if ((x[0] == x[i]) && (y[0] == y[i])) {
                 moving = false;  // Stop the game if snake collides with itself
+                break;
             }
         }
         if (x[0] < 0 || x[0] >= WINDOW_WIDTH || y[0] < 0 || y[0] >= WINDOW_HEIGHT) {
