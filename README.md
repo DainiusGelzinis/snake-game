@@ -2,8 +2,7 @@
 
 
 ## Introduction
-Welcome to the Snake Game! This is a classic game where you control a snake to eat food, grow in length, and try to avoid colliding with yourself or the borders. You can also choose the colour of the snake, and occaicionally the special berry appers, which boosts your speed once eaten.
-
+Welcome to the Snake Game, a modern take on the classic arcade game. In this version, you control a snake that grows in length as it eats food, while avoiding collisions with itself or the game borders. Players can customize the snake's color, and there's a special berry with a 20% chance of appearing, which temporarily boosts the snake's speed when consumed.
 ## Features
 
 ### 1. Snake Movement Logic
