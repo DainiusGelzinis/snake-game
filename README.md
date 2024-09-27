@@ -40,8 +40,8 @@ Welcome to the Snake Game! This is a classic game where you control a snake to e
 
 ## How to Play
 1. Use the arrow keys to control the snake.
-2. Try to eat the apples that appear on the board.
-3. Avoid colliding with the walls or the snake’s own body.
+2. Try to eat the apples or special berries that appear on the board.
+3. Avoid colliding with the borders or the snake’s own body.
 4. You can choose different snake skins and decide whether to eat special berries.
 
 ## Installation
